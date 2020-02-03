@@ -1,0 +1,5 @@
+URxvt*scrollBar:  false
+URxvt*internalBorder: 10
+URxvt*font: xft:ubuntumononerdfont:size=12:antialias=true
+URxvt.transparent:   true
+URxvt.shading:       20
