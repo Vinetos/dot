@@ -173,19 +173,29 @@ bindsym XF86MonBrightnessDown exec light -U 5
 bindsym XF86MonBrightnessUp   exec light -A 5
 
 # Audio
-bindsym XF86AudioLowerVolume exec "amixer -q sset Master 5%-"
-bindsym XF86AudioRaiseVolume exec "amixer -q sset Master 5%+"
+bindsym XF86AudioLowerVolume exec "amixer -q sset Master 1%-"
+bindsym XF86AudioRaiseVolume exec "amixer -q sset Master 1%+"
 bindsym XF86AudioMute        exec "amixer -q sset Master toggle"
 
+# Visual
 new_window pixel 0
-
 gaps inner 12
 gaps outer 0
 
+# Update wallpaper / theme / polybar
 exec_always --no-startup-id ~/.config/ui-update.sh &
 
+# Prepare comption
 exec --no-startup-id compton --config ~/.config/compton/config -b
 
 exec --no-startup-id unclutter --timeout 3 &
 
+# Override keyboard layout
 exec --no-startup-id setxkbmap fr
+
+# Assign apps to specific workspace
+assign [class="URxvt"]          $ws1
+assign [class="jetbrains-idea"] $ws2
+assign [class="firefox"]        $ws3
+assign [class="discord"]        $ws4
+for_window [class="Spotify"] move to workspace $ws5
